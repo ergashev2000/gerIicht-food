@@ -1,0 +1,150 @@
+@use './styles/variables' as v;
+@use './styles/mixins' as m;
+@use './styles/functions' as f;
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: v.$Cormorant;
+  color: v.$gold;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1;
+}
+
+button {
+  cursor: pointer;
+  background-color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+
+body,
+html {
+  font-family: v.$Open;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: v.$grey;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.container {
+  border: 0.0625rem solid rgba(0, 0, 255, 0);
+  max-width: v.$maxWidthContainer + 30px;
+  padding: 0 0.9375rem;
+  margin-inline: auto;
+  height: 100%;
+}
+
+.Video_video__xj523 {
+  .container {
+    height: 100%;
+  }
+}
+
+.Hero_sliderWrapper__Pkg2a {
+  .swiper-wrapper {
+    transform: translateX(0) !important;
+  }
+
+  .swiper-pagination {
+    font-family: v.$Cormorant;
+    position: absolute;
+    left: 10px;
+    bottom: 0px;
+    color: v.$white;
+    z-index: 10;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    line-height: f.ratio(16, 28);
+
+    span {
+      color: v.$white;
+    }
+  }
+}
+
+.active-header {
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    height: 0.125rem;
+    background-color: v.$white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.3s;
+  }
+}
+
+.OurHistory {
+  .Menu_bgIcon__H3Q0D {
+    display: none;
+  }
+}
+
+.btn__submit {
+  background: v.$gold;
+  cursor: pointer;
+  transition: background-color, 0.5s;
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  line-height: f.ratio(16, 28);
+  letter-spacing: 0.04em;
+  color: v.$black;
+  display: block;
+  padding: 0.5rem 2rem;
+
+  &:hover {
+    background: #e2c768b4;
+  }
+}

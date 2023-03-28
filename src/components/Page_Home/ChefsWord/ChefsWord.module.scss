@@ -1,0 +1,114 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.chefsWord {
+  background: url('../../../images/ChefsWord/BG.jpg')center/cover no-repeat;
+}
+
+.container {
+  margin-block: 8rem;
+  @include m.adaptiv-value('margin-inline', 190, -190, 1);
+  display: flex;
+  flex-direction: row-reverse;
+  column-gap: 6.9375rem;
+  align-items: center;
+  overflow: hidden;
+
+  @include m.laptop {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-inline: 0rem;
+  }
+}
+
+.image {
+  height: 43.1875rem;
+  max-width: 34.6875rem;
+  flex: 0 0 34.6875rem;
+  padding-left: 4.5rem;
+  position: relative;
+
+  @include m.laptop {
+    max-height: 43.1875rem;
+    max-width: 34.6875rem;
+    height: 80vw;
+    width: 80vw;
+    flex: 0 0 auto;
+  }
+}
+
+.chefsWordSlider {
+  height: 100%;
+  max-width: 30.1875rem;
+}
+
+.contant {
+  flex: 0 1 64%;
+  margin-block: 7.4375rem;
+}
+
+.ChefsWordTitle {
+  text-align: start;
+
+  div {
+    margin-inline: 0rem;
+  }
+}
+
+.awardsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 4rem;
+
+  @include m.netbook {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+}
+
+.awardItem {
+  display: flex;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.itemContent {
+  padding-right: 0.625rem;
+}
+
+.itemImg {
+  flex: 0 0 4.9375rem;
+  height: 4.9375rem;
+
+  @include m.phone {
+    flex: 0 0 3.6875rem;
+    height: 3.6875rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.itemTitle {
+  font-weight: 700;
+  font-family: v.$Cormorant;
+  font-size: 1.4375rem;
+  line-height: f.ratio(23, 29.9);
+  color: v.$gold;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.itemText {
+  line-height: f.ratio(16, 28);
+}

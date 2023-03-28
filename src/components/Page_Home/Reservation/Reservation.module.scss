@@ -1,0 +1,118 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.reservation {
+  padding-block: 10.625rem 9.5rem;
+  @include m.adaptiv-value('padding-inline', 158, 50, 1);
+  background: url('../../../images/line2.png')left -37.1875rem no-repeat, url('../../../images/line1.png')right -66.1875rem no-repeat, #0C0B08;
+
+  @include m.tablet {
+    padding-inline: 3.125rem;
+  }
+
+  @include m.phone {
+    padding-inline: 1.25rem;
+  }
+}
+
+.container {
+  background: #0C0C0C;
+  border: 0.0625rem solid rgba(220, 202, 135, 0.2);
+  box-shadow: 1.375rem 1.875rem 5.9375rem 0.0625rem rgba(0, 0, 0, 0.7);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center center/cover no-repeat;
+  right: -7.875rem;
+  top: -11rem;
+
+  @media screen and (max-width:1080px) {
+    right: -5.375rem;
+  }
+
+  @include m.tablet {
+    right: -2.8125rem;
+  }
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+    top: -7.875rem;
+    right: -1.5625rem;
+  }
+}
+
+.dialogBox {
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.dialogForm {
+  display: grid;
+  column-gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  &:not(:last-child) {
+    margin-bottom: 64px;
+  }
+
+  @include m.netbook {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 1.25rem;
+  }
+}
+
+.text,
+.date,
+.time {
+  width: 100%;
+  height: 3.75rem;
+  border: 0.0625rem solid #F5EFDB;
+  background: url('../../../images/Reservation/Vector.png') 96% center no-repeat, transparent;
+  letter-spacing: 0.04em;
+  color: v.$grey;
+  line-height: f.ratio(16, 28);
+  font-family: v.$Cormorant;
+  font-weight: 600;
+  padding-inline: 1rem;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none
+}
+
+.date::-webkit-calendar-picker-indicator,
+.time::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+}
+
+.date::-webkit-inner-spin-button,
+.time::-webkit-inner-spin-button {
+  display: none;
+}
+
+.text::placeholder,
+.date::placeholder,
+.time::placeholder {
+  letter-spacing: 0.04em;
+  color: v.$grey;
+  line-height: f.ratio(16, 28);
+  font-family: v.$Cormorant;
+  font-weight: 600;
+}

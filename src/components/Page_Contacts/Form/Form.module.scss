@@ -1,0 +1,94 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.form {
+  background: url('../../../images/Page-contacts/Form/BG.jpg') center/ cover no-repeat;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(27.1875rem, 39.6875rem) minmax(auto, 34.6875rem);
+  align-items: center;
+  @include m.adaptiv-value('column-gap', 111, 0, 1);
+  margin-block: 8rem;
+  @include m.adaptiv-value('margin-inline', 190, -250, 1);
+
+  @include m.laptop {
+    margin-inline: 0;
+    grid-template-columns: minmax(27.1875rem, 39.6875rem) f.vw(555, 1260);
+  }
+
+  @include m.netbook {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    margin-block: 3.75rem;
+    gap: 1.875rem;
+  }
+}
+
+.contentForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  @include m.netbook {
+    max-width: 39.6875rem;
+    width: f.vw(635, 992);
+    min-height: 25rem;
+  }
+
+  @include m.phone {
+    width: 85vw;
+  }
+}
+
+.name,
+.email,
+.message {
+  width: 100%;
+  height: 3.75rem;
+  border: 0.0625rem solid #F5EFDB;
+  background: transparent;
+  font-weight: 600;
+  font-family: v.$Cormorant;
+  font-size: 16px;
+  line-height: f.ratio(16, 28);
+  color: v.$grey;
+  padding: 1rem 0rem 1rem 1.1875rem;
+}
+
+.message {
+  width: 100%;
+  height: 8.75rem;
+}
+
+.slider {
+  max-height: 43.1875rem;
+  height: 43.1875rem;
+  padding-left: 4.5rem;
+
+  @include m.laptop {
+    height: f.vw(691, 1260);
+  }
+
+  @include m.netbook {
+    width: 34.6875rem;
+    height: 43.1875rem;
+  }
+
+  @include m.tablet {
+    width: f.vw(555, 768);
+    height: f.vw(691, 768);
+  }
+
+  @include m.phone {
+    height: 100vw;
+    width: 81vw;
+  }
+}
+
+.contactsBtn {
+  width: 8.0625rem;
+}

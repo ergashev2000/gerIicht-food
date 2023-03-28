@@ -1,0 +1,151 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.history {
+  background: #0C0C0C;
+}
+
+.container {
+  overflow: clip;
+  @include m.adaptiv-value('margin-inline', 190, -190, 1);
+  margin-block: 9.5rem 9.3125rem;
+
+  @include m.netbook {
+    margin-inline: 0;
+  }
+}
+
+.historyTitle {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.historyContent {
+  min-height: 43.125rem;
+  display: grid;
+  grid-template-columns: 0.83fr 1fr;
+  column-gap: 8.9375rem;
+
+  @include m.netbook {
+    grid-template-columns: 1fr;
+    row-gap: 5rem;
+  }
+}
+
+.contentLeft {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.leftText {
+  line-height: f.ratio(16, 28);
+}
+
+.leftImg {
+  flex: 1 0 auto;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.contentRight,
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
+
+.rightImg {
+  flex: 0 1 24.0625rem;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.rightTitle {
+  font-weight: 600;
+  font-size: 2.8125rem;
+  line-height: f.ratio(45, 58.5);
+}
+
+.rightList {
+  display: flex;
+  justify-content: space-between;
+
+  @include m.phone {
+    flex-direction: column;
+  }
+}
+
+.rightItem {
+  width: 7.875rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  position: relative;
+
+  &:not(:last-child) {
+    &::after {
+      width: 6.25rem;
+      height: 0.125rem;
+      content: '';
+      background: linear-gradient(270deg, rgba(250, 250, 250, 0.24) -19.44%, #FAFAFA 44.12%, rgba(250, 250, 250, 0) 117.57%);
+      position: absolute;
+      transform: rotate(-90deg) translateY(-50%);
+      top: 50%;
+      @include m.adaptiv-value('right', -100, 0, 1);
+
+      @include m.netbook {
+        @include m.adaptiv-value('right', -350, 0, 1);
+      }
+
+      @include m.phone {
+        display: none;
+      }
+    }
+  }
+
+  @include m.phone {
+    width: 100%;
+  }
+}
+
+.itemNumber {
+  font-family: v.$Cormorant;
+  font-weight: 600;
+  font-size: 2.8125rem;
+  line-height: f.ratio(45, 58.5);
+  color: v.$gold;
+}
+
+.itemIcon {
+  width: 2.5rem;
+  height: 0.5625rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.itemText {
+  font-family: v.$Cormorant;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: f.ratio(32, 41.6);
+  color: v.$white;
+}

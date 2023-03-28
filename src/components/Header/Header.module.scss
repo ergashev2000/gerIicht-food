@@ -1,0 +1,252 @@
+@use '../../styles/variables.scss' as v;
+@use '../../styles/mixins.scss' as m;
+@use '../../styles/functions.scss' as f;
+
+.header {
+  padding-block: 2rem;
+  background: #0C0B08;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 13;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+
+.logo {
+  flex: 1 1 33%;
+
+  a {
+    font-family: v.$Cormorant;
+    font-weight: 700;
+    font-size: 2.75rem;
+    line-height: f.ratio(44, 57.2);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: v.$white;
+    cursor: pointer;
+  }
+}
+
+.navWrapper {
+  flex: 1 1 66%;
+  display: flex;
+  justify-content: space-between;
+
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+}
+
+.navWrapper.active {
+  height: 80vh;
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: fixed;
+  background-color: rgba(170, 170, 170, 0.795);
+  top: 7.625rem;
+  right: 0;
+  overflow: auto;
+
+  @include m.phone {
+    width: 100vw;
+  }
+}
+
+.nav.active {
+
+  .navList {
+    flex-direction: column;
+    row-gap: 2.1875rem;
+    align-items: center;
+
+    a {
+      font-size: 1.75rem;
+    }
+  }
+
+}
+
+.navList {
+  display: flex;
+  column-gap: 2rem;
+  flex-wrap: wrap;
+  padding-inline: 0.9375rem;
+
+  a {
+    line-height: f.ratio(16, 28);
+    text-decoration: none;
+    color: v.$white;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+}
+
+.navItem {
+  position: relative;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    height: 0.125rem;
+    background-color: v.$white;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    transition: all 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.registration {
+  display: flex;
+  column-gap: 6.25rem;
+
+  @include m.laptop {
+    column-gap: 3.125rem;
+  }
+}
+
+.registration.active {
+  flex-direction: column;
+  row-gap: 1.875rem;
+  align-items: center;
+  margin-top: 3.125rem;
+
+
+  .table,
+  .logIn {
+    a {
+      font-size: 1.75rem;
+      line-height: f.ratio(28, 36);
+
+      @include m.tablet {
+        font-size: 1.5625rem;
+        line-height: f.ratio(25, 35);
+      }
+    }
+  }
+}
+
+.logIn {
+  position: relative;
+
+  &::after {
+    display: inline-block;
+    content: '';
+    height: 3.5625rem;
+    width: 0.0625rem;
+    background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 58.85%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    right: -3.125rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include m.laptop {
+      right: -1.5625rem;
+    }
+  }
+
+  @include m.tablet {
+    max-width: 18.125rem;
+    text-align: center;
+  }
+}
+
+.table,
+.logIn {
+
+  position: relative;
+
+  a {
+    font-weight: 600;
+    line-height: f.ratio(16, 28);
+    letter-spacing: 0.05em;
+    color: v.$white;
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: '';
+      height: 0.125rem;
+      background-color: v.$white;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.burgerMenu {
+  width: 3.125rem;
+  height: 3.125rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+}
+
+.menuTablet {
+  height: 0.0625rem;
+  width: 3.125rem;
+  background-color: #fff;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: '';
+    height: 0.0625rem;
+    width: 3.125rem;
+    background-color: #fff;
+    position: absolute;
+    transition: all 0.3s;
+  }
+
+  &::after {
+    top: 0.75rem;
+  }
+
+  &::before {
+    bottom: 0.75rem;
+  }
+}
+
+.menuTablet.active {
+  visibility: hidden;
+
+  &::after {
+    top: 0;
+    transform: rotate(45deg);
+    visibility: visible;
+    z-index: 5;
+  }
+
+  &::before {
+    top: 0;
+    transform: rotate(-45deg);
+    visibility: visible;
+    z-index: 5;
+  }
+}

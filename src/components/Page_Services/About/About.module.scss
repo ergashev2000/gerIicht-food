@@ -1,0 +1,73 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.about {
+  background: #0C0C0C;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  margin-block: 12.25rem 9.5rem;
+  @include m.adaptiv-value('margin-inline', 275, 0, 1);
+
+  @include m.netbook {
+    margin-inline: 0;
+  }
+
+  @include m.phone {
+    margin-block: 3.5rem 9.5rem;
+  }
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center center / cover no-repeat;
+  @include m.adaptiv-value('right', -200, 0, 1);
+  bottom: -9.375rem;
+
+  @include m.netbook {
+    right: 0;
+  }
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+  }
+}
+
+.title,
+.text {
+  text-align: center;
+}
+
+.text {
+  max-width: 54.25rem;
+  line-height: f.ratio(16, 28);
+}
+
+.buttons {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+
+  @include m.phone {
+    flex-direction: column;
+  }
+}
+
+.aboutBtn {
+  background-color: transparent;
+  border: 0.0625rem solid v.$gold;
+
+  a {
+    color: v.$white;
+  }
+}

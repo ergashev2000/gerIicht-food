@@ -1,0 +1,71 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.hero {
+  min-height: 42.4375rem;
+  background: url('../../../images/Page-contacts/Hero/bg.jpg') center / cover no-repeat, #0c0c0c80;
+  background-blend-mode: overlay;
+  display: grid;
+  place-content: center;
+
+  @include m.phone {
+    min-height: 120vw;
+  }
+}
+
+.container {
+  text-align: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 5.625rem;
+  line-height: f.ratio(90, 117);
+  text-transform: capitalize;
+
+  @include m.phone {
+    font-size: 3.125rem;
+    line-height: f.ratio(50, 60.2);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.wrapperText {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+
+  @include m.netbook {
+    flex-wrap: wrap;
+  }
+}
+
+.text {
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  font-size: 1.4375rem;
+  line-height: f.ratio(23, 29.9);
+  color: v.$white;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  @include m.phone {
+    font-size: 1.25rem;
+    line-height: f.ratio(20, 26.9);
+  }
+
+  &:hover {
+    color: v.$gold;
+  }
+
+}
+
+.icon {
+  width: 0.5rem;
+  height: 0.8125rem;
+}

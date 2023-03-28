@@ -1,0 +1,66 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.photoGallery {
+  background: url('../../../images/line1.png') right -576.25rem no-repeat, url('../../../images/line2.png') left -576.25rem no-repeat, url('../../../images/ChefsWord/BG.jpg')center / cover no-repeat;
+  overflow: clip;
+}
+
+.container {
+  margin-block: 8rem;
+  display: flex;
+  gap: 4rem;
+  position: relative;
+  right: 0;
+  @include m.adaptiv-value('left', 190, -190, 1);
+
+  @include m.laptop {
+    margin-block:6.25rem;
+    flex-direction: column;
+    left: 0;
+    align-items: center;
+  }
+
+  @include m.phone {
+    margin-block: 1.25rem;
+  }
+}
+
+.content {
+  flex: 0 0 28.8125rem;
+  padding-block: 5.0625rem;
+
+  @include m.phone {
+    padding-block: 1.25rem;
+    flex: 0 0 auto;
+  }
+}
+
+.galleryTitle {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.galleryButton {
+  @include m.laptop {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contentText {
+  p {
+    line-height: f.ratio(16, 28);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.gallery {
+  width: 100%;
+  flex: 0 1 auto;
+}

@@ -1,0 +1,23 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.Chefs_image__KaiAG {
+  .swiper {
+
+    @include m.netbook {
+      max-height: 74vw;
+    }
+  }
+
+  .swiper-slide {
+    transform: translateX(0);
+
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: cover;
+    //   object-position: center;
+    // }
+  }
+}

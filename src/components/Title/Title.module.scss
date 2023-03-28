@@ -1,0 +1,55 @@
+@use '../../styles/variables.scss' as v;
+@use '../../styles/mixins.scss' as m;
+@use '../../styles/functions.scss' as f;
+
+.title {
+  text-align: center;
+
+  h2 {
+    font-family: v.$Cormorant;
+    font-weight: 600;
+    font-size: 4rem;
+    line-height: f.ratio(64, 83.2);
+    color: v.$gold;
+    text-transform: capitalize;
+
+    @include m.phone {
+      font-size: 2.5rem;
+      line-height: f.ratio(40, 63.2);
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  p {
+    font-family: v.$Cormorant;
+    font-weight: 700;
+    font-size: 1.4375rem;
+    line-height: f.ratio(23, 29.9);
+    color: v.$white;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  div {
+    width: 2.5rem;
+    height: 0.625rem;
+    margin-inline: auto;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+}

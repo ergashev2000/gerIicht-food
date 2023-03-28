@@ -1,0 +1,172 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.blog {
+  background: url('../../../images/line1.png')right -485.25rem no-repeat, url('../../../images/line2.png')left -485.25rem no-repeat, #0C0B08;
+
+}
+
+.container {
+  margin-block: 9.5rem;
+  @include m.adaptiv-value('margin-inline', 190, -190, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+  position: relative;
+
+  @include m.netbook {
+    margin-inline: 0rem;
+  }
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center center/cover no-repeat;
+  bottom: -1.8125rem;
+  @include m.adaptiv-value('right', -190, 190, 1);
+  z-index: 10;
+
+  @media screen and (min-width:1920px) {
+    right: -14.75rem;
+  }
+
+  @include m.laptop {
+    bottom: -1.8125rem;
+    right: 0px;
+  }
+
+  @include m.netbook {
+    bottom: -8.0625rem;
+  }
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+    bottom: -8.0625rem;
+  }
+}
+
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+
+  @include m.laptop {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  @include m.netbook {
+    row-gap: 6rem;
+  }
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+
+  @include m.laptop {
+    flex-direction: row;
+    column-gap: 1.5rem;
+  }
+
+  @include m.netbook {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.itemImg {
+  max-height: 26.875rem;
+  flex: 0 0 26.875rem;
+
+  @include m.netbook {
+    width: 80vw;
+    height: 80vw;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  row-gap:2rem;
+
+  @include m.netbook {
+    max-width: 80vw;
+  }
+}
+
+.itemPublication {
+  display: flex;
+  justify-content: space-between;
+}
+
+.publicationData,
+.publicationAuthor {
+  line-height: f.ratio(16, 28);
+  color: v.$fa;
+}
+
+.itemTitle {
+  h5 {
+    font-size: 2rem;
+    line-height: f.ratio(32, 41.6);
+    color: v.$gold;
+    text-transform: capitalize;
+    position: relative;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.4375rem;
+    }
+  }
+
+}
+
+.itemText {
+  @include m.laptop {
+    flex: 1 0 auto;
+  }
+
+  p {
+    line-height: f.ratio(16, 28);
+  }
+}
+
+.itemLink {
+  a {
+    font-family: v.$Cormorant;
+    font-weight: 700;
+    line-height: f.ratio(16, 28);
+    color: v.$gold;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: '';
+      height: 0.0625rem;
+      width: 0;
+      background-color: v.$gold;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

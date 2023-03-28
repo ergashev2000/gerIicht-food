@@ -1,0 +1,62 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.happyHours {
+  position: relative;
+}
+
+.happyHoursSwiper {
+  max-height: 56.25rem;
+  height: f.vw(900, 1920);
+  min-height: 28.125rem;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 8rem;
+  line-height: f.ratio(128, 166.4);
+  color: v.$gold;
+  text-align: center;
+
+  @include m.laptop {
+    font-size: 6.25rem;
+    line-height: f.ratio(100, 145.4);
+  }
+
+  @include m.netbook {
+    font-size: 4.375rem;
+    line-height: f.ratio(70, 115.4);
+  }
+
+  @include m.phone {
+    font-size: 2.5rem;
+    line-height: f.ratio(40, 75.4);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.text {
+  text-align: center;
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: f.ratio(32, 41.6);
+  color: v.$white;
+
+  @include m.netbook {
+    font-size: 1.625rem;
+    line-height: f.ratio(26, 38);
+  }
+}

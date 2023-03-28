@@ -1,0 +1,39 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.gallery-slider {
+  max-height: 28.0625rem;
+
+  .swiper-slide {
+    height: 27.9375rem;
+    position: relative;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      background: url('../../../images/Gallery/insta.svg') center / 3.25rem no-repeat, linear-gradient(207.55deg, rgba(0, 0, 0, 0.75) 1.5%, rgba(0, 0, 0, 0.64) 98.62%);
+      z-index: 10;
+      border: 0.125rem solid rgba(220, 202, 135, 0.2);
+      transition: opacity 0.3s;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+}

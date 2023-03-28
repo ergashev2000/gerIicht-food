@@ -1,0 +1,266 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.blog {
+  background: v.$black;
+}
+
+.container {
+  margin-block: 9.5rem;
+  @include m.adaptiv-value('margin-inline', 190, 0, 1);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  position: relative;
+
+  @media screen and (max-width:1260px) {
+    margin-inline: 0;
+  }
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center / cover no-repeat;
+  top: 50%;
+  @include m.adaptiv-value('right', -190, 190, 1);
+  z-index: 10;
+
+  @media screen and (max-width:1680px) {
+    right: 0;
+    top: -9.375rem;
+  }
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+  }
+}
+
+.publication {
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.title {
+  font-size: 4rem;
+  line-height: f.ratio(64, 83.2);
+  text-transform: capitalize;
+
+  @include m.phone {
+    font-size: 2.625rem;
+    line-height: f.ratio(42, 61.2);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.image {
+  height: f.vw(430, 1920);
+  max-height: 26.875rem;
+  width: 100%;
+
+  @include m.laptop {
+    height: f.vw(430, 1260);
+  }
+
+  @include m.phone {
+    height: f.vw(430, 768);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.blogSidebar {
+  display: grid;
+  grid-template-columns: 1fr 0.44fr;
+  column-gap: 4.3125rem;
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    row-gap: 4.3125rem;
+  }
+}
+
+.content,
+.contentText,
+.prepare,
+.imageContent,
+.prepareList,
+.ICList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3.5rem;
+}
+
+.contentText {
+  row-gap: 2.5rem;
+  line-height: f.ratio(16, 28);
+}
+
+.prepare {
+  row-gap: 2rem;
+}
+
+.prepareTitle,
+.ICTitle {
+  font-weight: 700;
+  font-size: 1.4375rem;
+  line-height: f.ratio(23, 29.9);
+  text-transform: capitalize;
+}
+
+.prepareList {
+  row-gap: 2rem;
+}
+
+.prepareItem,
+.ICItem {
+  position: relative;
+  transform: translateX(1.5rem);
+  margin-right: 1.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 0.0625rem;
+    background-color: v.$gold;
+  }
+}
+
+.video {
+  height: f.vw(346, 1920);
+  max-height: 21.625rem;
+  width: 100%;
+  background: url('../../../images/Blog_Details/bgVideo.jpg') center / cover no-repeat, #0C0C0C6b;
+  background-blend-mode: overlay;
+  display: grid;
+  place-items: center;
+
+  @include m.laptop {
+    height: f.vw(346, 1260);
+  }
+
+  @include m.tablet {
+    height: 21.625rem;
+  }
+}
+
+.play {
+  width: 7.5rem;
+  height: 7.5rem;
+
+  @include m.phone {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-out;
+  }
+
+  &:hover {
+    svg {
+      transform: scale(1.1);
+      fill: v.$gold;
+    }
+  }
+}
+
+.quote {
+  min-height: 11.75rem;
+  background: url('../../../images/Blog_Details/bg1.png') left 16px top -4px / 53px 45px no-repeat,
+    url('../../../images/Blog_Details/bg2.png') right 16px bottom -4px / 53px 45px no-repeat, #545454;
+  display: grid;
+  place-items: center;
+  font-family: v.$Cormorant;
+  font-size: 2rem;
+  line-height: f.ratio(32, 41.6);
+  color: v.$white;
+  font-weight: 400;
+  text-transform: capitalize;
+  border: 0.0625rem solid v.$gold;
+
+  @include m.phone {
+    background: url('../../../images/Blog_Details/bg1.png') left 6px top -4px / 33px 25px no-repeat,
+      url('../../../images/Blog_Details/bg2.png') right 6px bottom -4px / 33px 25px no-repeat, #545454;
+  }
+}
+
+.textImageWrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.58fr;
+  column-gap: 2rem;
+
+  @include m.netbook {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr minmax(auto, 325px);
+    row-gap: 2rem;
+  }
+}
+
+.imageContent {
+  row-gap: 2rem;
+}
+
+.ICList {
+  row-gap: 2rem;
+}
+
+.imageImg {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.contentActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tags,
+.actions,
+.action {
+  display: flex;
+  column-gap: 1rem;
+
+  @include m.netbook {
+    flex-wrap: wrap;
+  }
+}
+
+.actions {
+  column-gap: 2rem;
+}
+
+.actionIcon {
+  width: 1.4375rem;
+  height: 1.4375rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

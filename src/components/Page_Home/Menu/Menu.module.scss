@@ -1,0 +1,91 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.menu {
+  max-height: 58.25rem;
+  justify-content: flex-start;
+  background: #0C0B08;
+
+  @include m.phone {
+    max-height: 39.5rem;
+  }
+}
+
+.container {
+  max-height: 100%;
+  position: relative;
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center center/cover no-repeat;
+  left: 1.625rem;
+  top: -1.625rem;
+  z-index: 10;
+
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+  }
+}
+
+.menuSwiper {
+  .swiper {
+    height: 100%;
+    // width: 100%;
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    left: 1.625rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+    z-index: 10;
+
+    @include m.phone {
+      row-gap: 2rem;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    display: flex;
+    font-family: v.$Cormorant;
+    font-weight: 600;
+    font-size: 4rem;
+    line-height: f.ratio(64, 83.2);
+    letter-spacing: 0.03em;
+    color: v.$white;
+
+    @include m.phone {
+      font-size: 2.5rem;
+      line-height: f.ratio(40, 60);
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    text-decoration: underline;
+    text-underline-offset: 0.625rem;
+  }
+}
+
+.wrapperImg {
+  height: 58.25rem;
+
+  @include m.phone {
+    height: 39.5rem;
+  }
+
+  img {
+    width: 99%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

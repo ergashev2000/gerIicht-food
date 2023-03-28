@@ -1,0 +1,125 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.hero {
+  padding-block: 3rem 9.5rem;
+  background: url('../../../images/line1.png')right -8.5% no-repeat, #0C0B08;
+
+  @include m.phone {
+    padding-block: 3rem;
+    // text-align: center;
+  }
+}
+
+.container {
+  min-height: 51.75rem;
+  display: flex;
+
+  @include m.netbook {
+    flex-direction: column;
+  }
+
+  @include m.phone {
+    min-height: initial;
+  }
+}
+
+.contant {
+  flex: 0 1 50%;
+  padding-block: 7.9375rem;
+  @include m.adaptiv-value('padding-left', 180, -50, 1);
+  @include m.adaptiv-value('padding-right', 190, -50, 1);
+
+
+  @include m.laptop {
+    padding-block: 5rem;
+    @include m.adaptiv-value('padding-left', 140, -50, 1);
+    @include m.adaptiv-value('padding-right', 150, -50, 1);
+  }
+}
+
+.logo {
+  margin-bottom: 0.5rem;
+}
+
+.logoText {
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  color: v.$white;
+  font-size: 1.4375rem;
+  line-height: f.ratio(23, 29.9);
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.logoImg {
+  width: 2.5rem;
+  height: 0.625rem;
+
+  img {
+    max-width: 100;
+    object-fit: contain;
+  }
+}
+
+.title {
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  font-size: 5.625rem;
+  line-height: f.ratio(90, 113);
+  color: v.$gold;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+
+  @include m.laptop {
+    font-size: 5rem;
+    line-height: f.ratio(80, 103);
+  }
+
+  @include m.phone {
+    font-size: 3.125rem;
+    line-height: f.ratio(50, 73);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.text {
+  color: v.$grey;
+  line-height: f.ratio(16, 28);
+  letter-spacing: 0.04em;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.scroll {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  color: v.$gold;
+  letter-spacing: 0.04em;
+  line-height: f.ratio(16, 24);
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    background: linear-gradient(270deg, #DCCA87 -19.44%, #DCCA87 44.12%, rgba(220, 202, 135, 0.24) 117.57%);
+    width: 3.8125rem;
+    height: 0.0625rem;
+    position: absolute;
+    top: -3.125rem;
+    left: 0;
+    transform: rotate(-90deg);
+  }
+}

@@ -1,0 +1,51 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.map {
+  background: #0C0C0C;
+}
+
+.container {
+  max-width: 81.25rem;
+  height: 31.25rem;
+  border: 0.125rem solid #DCCA87;
+  margin-block: 9.5rem;
+  @include m.adaptiv-value('margin-inline', 190, -190, 1);
+  background: url('../../../images/Page-contacts/Map/map.jpg') center / cover no-repeat;
+  position: relative;
+
+  @include m.netbook {
+    margin-inline: 0;
+  }
+
+  @include m.phone {
+    height: 50vw;
+    margin-block: 6.875rem;
+  }
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center / cover no-repeat;
+  right: -12.5rem;
+  bottom: -4.6875rem;
+  z-index: 10;
+
+  @media screen and (max-width:1740px) {
+    @include m.adaptiv-value('right', -170, 180, 1);
+    bottom: -9.375rem;
+  }
+
+  @include m.tablet {
+    right: 0;
+  }
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+    bottom: -6.875rem;
+  }
+}

@@ -1,0 +1,130 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.testimony {
+  background: url('../../../images/line1.png')right -306.25rem no-repeat, #0C0B08;
+  padding-block: 9.5rem;
+  @include m.adaptiv-value('padding-inline', 190, -190, 1);
+}
+
+.container {
+  position: relative;
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../../images/icon.png') center center/cover no-repeat;
+  right: 0;
+  top: -12.5rem;
+  z-index: 10;
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+  }
+}
+
+.contantList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 4rem;
+
+  @include m.laptop {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+}
+
+.contantItem {
+  display: flex;
+
+  @media screen and (max-width:675px) {
+    flex-direction: column-reverse;
+
+    &:not(:last-child) {
+      margin-bottom:4rem;
+    }
+  }
+}
+
+.itemPhoto {
+  flex: 0 1 13.25rem;
+  padding: 0rem 1rem 1.125rem 0rem;
+  position: relative;
+
+  @media screen and (max-width:675px) {
+    width: 13.25rem;
+    margin-inline: auto;
+    padding: 0;
+  }
+
+  &::after {
+    width: 2.9375rem;
+    height: 2.5rem;
+    content: '';
+    background: url('../../../images/Chefs/“.png')center/cover no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @media screen and (max-width:675px) {
+      bottom: -1.25rem;
+      right: -1.75rem;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.itemContant {
+  flex: 0 1 77%;
+  padding: 1.125rem 0rem 1.125rem 1rem;
+
+  @media screen and (max-width:675px) {
+    flex: 1 1 auto;
+    padding: 0;
+  }
+}
+
+.itemText {
+  font-style: italic;
+  line-height: f.ratio(16, 28);
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.itemAuthor {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: f.ratio(32, 41.6);
+
+  &:not(:last-child) {
+    margin-bottom: 0.25rem;
+  }
+
+  @media screen and (max-width:675px) {
+    text-align: center;
+  }
+}
+
+.itemPosition {
+  line-height: f.ratio(16, 28);
+  color: v.$f5e;
+
+  @media screen and (max-width:675px) {
+    text-align: center;
+  }
+}

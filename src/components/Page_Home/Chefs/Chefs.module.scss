@@ -1,0 +1,130 @@
+@use '../../../styles/variables.scss' as v;
+@use '../../../styles/mixins.scss' as m;
+@use '../../../styles/functions.scss' as f;
+
+.chefs {
+  background: url('../../../images/Chefs/BG.jpg')center center/cover no-repeat;
+}
+
+.container {
+  display: flex;
+  padding-block: 8rem;
+  @include m.adaptiv-value('padding-inline', 175, 0, 1);
+  overflow: hidden;
+
+  @include m.laptop {
+    padding-inline: 0rem;
+  }
+
+  @include m.netbook {
+    flex-direction: column-reverse;
+  }
+
+  @include m.phone {
+    padding-block: 1.75rem;
+  }
+
+}
+
+.image {
+  flex: 0 1 50%;
+  max-height: 49.3125rem;
+  position: relative;
+  padding: 1.5rem;
+  overflow: hidden;
+
+  @include m.netbook {
+    min-width: initial;
+  }
+
+  &::after,
+  &::before {
+    width: 68%;
+    height: 68%;
+    content: '';
+    background-color: v.$gold;
+    position: absolute;
+  }
+
+  &::after {
+    bottom: 0;
+    left: 0;
+  }
+
+  &::before {
+    top: 0;
+    right: 0;
+  }
+}
+
+.chefsSlider {
+  max-height: 100%;
+
+  @include m.netbook {
+    max-height: 74vw;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.contant {
+  flex: 0 1 50%;
+  padding-block: 5.1875rem;
+  @include m.adaptiv-value('padding-left', 96, 0, 1);
+  display: flex;
+  flex-direction: column;
+  @include m.adaptiv-value('row-gap', 64, 0, 1);
+}
+
+.chefsTitle {
+  text-align: start;
+
+  div {
+    margin-inline: 0rem;
+  }
+}
+
+.textTitle,
+.text {
+  font-style: italic;
+  line-height: f.ratio(16, 28);
+  color: v.$grey;
+  letter-spacing: 0.04em;
+}
+
+.textTitle {
+  display: flex;
+  align-items: flex-end;
+  column-gap: 0.625rem;
+}
+
+.name {
+  font-family: v.$Cormorant;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: f.ratio(32, 41.6);
+  color: v.$gold;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.position {
+  line-height: f.ratio(16, 28);
+}
+
+.signature {
+  width: 15rem;
+  height: 5.1875rem;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

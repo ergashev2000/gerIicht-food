@@ -1,0 +1,300 @@
+@use '../../styles/variables.scss' as v;
+@use '../../styles/mixins.scss' as m;
+@use '../../styles/functions.scss' as f;
+
+.footer {
+  background: url('../../images/line1.png') right -622.3125rem no-repeat, url('../../images/line2.png') left -622.3125rem no-repeat, url('../../images/Footer/BG.jpg') center 20.875rem / cover no-repeat, #0C0B08;
+  padding-bottom: 8rem;
+
+  @include m.phone {
+    padding-bottom: 3.125rem;
+  }
+}
+
+.bgIcon {
+  position: absolute;
+  width: 9.125rem;
+  height: 9.125rem;
+  background: url('../../images/icon.png') center / cover no-repeat;
+  top: -10.3125rem;
+  left: -12.75rem;
+  z-index: 10;
+
+  @media screen and (max-width:1740px) {
+    @include m.adaptiv-value('left', -170, 180, 1);
+  }
+
+  @include m.tablet {
+    left: 0;
+  }
+
+  @include m.phone {
+    width: 6.625rem;
+    height: 6.625rem;
+  }
+}
+
+.toTop {
+  position: absolute;
+  bottom: 45%;
+  right: -11.25rem;
+  transform: translateX(-50%);
+  font-family: v.$Cormorant;
+  font-weight: 700;
+  color: v.$gold;
+  letter-spacing: 0.04em;
+  line-height: f.ratio(16, 24);
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @media screen and (max-width:1740px) {
+    @include m.adaptiv-value('right', -170, 180, 1);
+  }
+
+  @include m.laptop {
+    bottom: 38%;
+  }
+
+  @include m.netbook {
+    bottom: 45%;
+    right: 0rem;
+  }
+
+  @include m.phone {
+    bottom: 48%;
+  }
+
+  &::after {
+    content: '';
+    background: linear-gradient(270deg, #DCCA87 -19.44%, #DCCA87 44.12%, rgba(220, 202, 135, 0.24) 117.57%);
+    width: 3.8125rem;
+    height: 0.0625rem;
+    position: absolute;
+    top: -3.125rem;
+    left: -50%;
+    transform: rotate(-90deg);
+  }
+}
+
+.container {
+  position: relative;
+  margin-top: 7.0625rem;
+  @include m.adaptiv-value('margin-inline', 190, -190, 1);
+
+  @include m.netbook {
+    max-width: 100vw;
+    margin-inline: 0rem;
+  }
+}
+
+.newsletter {
+  padding-block: 4rem;
+  @include m.adaptiv-value('padding-inline', 252, -100, 1);
+  background: #0C0C0C;
+  border: 1px solid rgba(220, 202, 135, 0.2);
+  box-shadow: 1.375rem 1.875rem 5.9375rem 0.0625rem rgba(0, 0, 0, 0.7);
+
+  @include m.netbook {
+    max-width: 90vw;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+
+
+  &:not(:last-child) {
+    margin-bottom: 8rem;
+
+    @include m.phone {
+      margin-bottom: 3.125rem;
+    }
+  }
+}
+
+.footerTitle {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+.newsletterText {
+  text-align: center;
+  line-height: f.ratio(16, 28);
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.subscribe {
+  display: flex;
+  gap: 2rem;
+
+  @include m.phone {
+    flex-direction: column;
+  }
+}
+
+.footerBtn {
+  margin-block: 0.5rem;
+
+  @include m.phone {
+    height: 3.75rem;
+  }
+}
+
+.subscribeInput {
+  flex: 1 1 auto;
+  height: 3.75rem;
+  border: 1px solid #F5EFDB;
+  background-color: transparent;
+  color: v.$grey;
+  padding-left: 1.125rem;
+  font-family: v.$Cormorant;
+  font-weight: 600;
+  line-height: f.ratio(16, 28);
+  font-size: 1rem;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.9375rem;
+
+  @include m.netbook {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'contacts schedule' 'logo logo';
+    place-items: center;
+  }
+
+  @include m.phone {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'contacts contacts' 'schedule schedule' 'logo logo';
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 5rem;
+  }
+}
+
+.contacts {
+  grid-area: contacts;
+}
+
+.schedule {
+  grid-area: schedule;
+}
+
+.contentLogo {
+  grid-area: logo;
+}
+
+.contacts,
+.schedule {
+  padding-top: 1.5625rem;
+  text-align: center;
+}
+
+.contactsTitle,
+.scheduleTitle {
+  color: v.$f5e;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: f.ratio(32, 41.6);
+  text-align: center;
+
+  @include m.phone {
+    font-size: 1.4375rem;
+    line-height: f.ratio(23, 31.6);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.contactsText,
+.businessHours {
+  line-height: f.ratio(16, 28);
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.weekdays {
+  line-height: f.ratio(16, 28);
+}
+
+.contactsPhone {
+  display: block;
+  text-decoration: none;
+  color: v.$grey;
+  line-height: f.ratio(16, 28);
+  text-align: center;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.contentLogo {
+  max-width: 27.375rem;
+  text-align: center;
+}
+
+.logoTitle {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 4rem;
+  line-height: f.ratio(64, 83.2);
+
+  @include m.phone {
+    font-size: 2.5rem;
+    line-height: f.ratio(40, 63.2);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.logoText {
+  line-height: f.ratio(16, 28);
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.logoImg {
+  width: 2.5rem;
+  height: 0.625rem;
+  margin-inline: auto;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
+.logoIcons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.footerText {
+  text-align: center;
+  line-height: f.ratio(16, 28);
+}
